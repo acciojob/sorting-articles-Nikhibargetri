@@ -1,1 +1,20 @@
 /*  your css code here. If applicable */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+ul {
+  list-style-type: square;
+  background-color: white;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+li {
+  margin: 8px 0;
+}
