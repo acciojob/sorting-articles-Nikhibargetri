@@ -1,5 +1,3 @@
-//your JS code here. If required.
-// Given array of band names
 const bands = [
   'The Plot in You',
   'The Devil Wears Prada',
@@ -16,16 +14,19 @@ const bands = [
   'An Old Dog'
 ];
 
-// Function to remove 'a', 'an', 'the' from beginning for sorting
-function stripArticle(name) {
-  return name.replace(/^(a |an |the )/i, '').trim();
+// Function to strip 'a', 'an', 'the' from sorting
+function strip(article) {
+  return article.replace(/^(a |an |the )/i, '').trim();
 }
 
-// Sort the array ignoring articles
-const sortedBands = bands.sort((a, b) => {
-  if (stripArticle(a) < stripArticle(b)) return -1;
-  if (stripArticle(a) > stripArticle(b)) return 1;
-  return 0;
-});
+// Sort the bands ignoring 'a', 'an', 'the'
+const sortedBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1);
 
-// Render sorted list
+// Add them to the HTML
+const ul = document.queryta("bands");
+
+sortedBands.forEach(band => {
+  const li = document.createElement('li');
+  li.textContent = band;
+  ul.appendChild(li);
+});
