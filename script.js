@@ -14,19 +14,14 @@ const bands = [
   'An Old Dog'
 ];
 
-// Function to strip 'a', 'an', 'the' from sorting
+// Function to remove 'A', 'An', 'The' from start of titles for sorting
 function strip(article) {
   return article.replace(/^(a |an |the )/i, '').trim();
 }
 
-// Sort the bands ignoring 'a', 'an', 'the'
-const sortedBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1);
+// Sort the bands ignoring 'A', 'An', 'The'
+const sortedBands = bands.sort((a, b) => strip(a).localeCompare(strip(b)));
 
-// Add them to the HTML
-const ul = document.queryta("bands");
-
-sortedBands.forEach(band => {
-  const li = document.createElement('li');
-  li.textContent = band;
-  ul.appendChild(li);
-});
+// Display sorted list in the UL
+document.getElementById('band').innerHTML = 
+  sortedBands.map(band => `<li>${band}</li>`).join('');
